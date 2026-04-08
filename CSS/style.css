@@ -1,0 +1,73 @@
+body {
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Селектор за ідентифікатором */
+#main-title {
+    font-size: 32px;
+    color: #2c3e50;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Селектор класу для підзаголовків */
+.section-header {
+    font-size: 24px;
+    color: #2980b9;
+    border-bottom: 2px solid #2980b9;
+    margin-top: 20px;
+}
+
+/* Стиль для посилань */
+a {
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Марковані та нумеровані списки */
+ul, ol {
+    list-style-position: inside;
+    margin: 20px 0;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: table;
+}
+
+ul {
+    list-style-type: square;
+}
+
+/* Список визначень */
+dl {
+    background-color: #dfe6e9;
+    padding: 10px;
+    border-left: 5px solid #74b9ff;
+}
+
+dt { font-weight: bold; color: #2d3436; }
+dd { margin-bottom: 10px; }
+
+/* Таблиця */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+}
+
+table th, table td {
+    border: 1px solid #bdc3c7;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #2980b9;
+    color: white;
+}
