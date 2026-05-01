@@ -1,6 +1,6 @@
 body {
     background-color: #f0f4f8;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: #333;
 }
@@ -23,11 +23,10 @@ body {
 
 /* Стиль для посилань */
 a {
-    color: #e67e22;
+    color: #e67e22 !important;
     text-decoration: none;
     font-weight: bold;
 }
-
 
 /* Марковані та нумеровані списки */
 ul, ol {
@@ -70,4 +69,77 @@ table th, table td {
 table th {
     background-color: #2980b9;
     color: white;
+}
+
+
+/* КОНТЕКСТНІ СЕЛЕКТОРИ
+
+Посилання всередині навігації (будь-який рівень вкладеності) */
+nav a {
+    color: #8e44ad !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Елементи списку всередині ul (будь-який рівень вкладеності) */
+ul li {
+    padding: 5px 0;
+    color: #2c3e50;
+    font-style: italic;
+}
+
+/* Посилання всередині параграфа */
+p a {
+    border-bottom: 1px dashed #e67e22;
+    padding-bottom: 1px;
+}
+
+
+/* ДОЧІРНІ СЕЛЕКТОРИ (>)*/
+
+/* Тільки прямі дочірні h2 тега body */
+body > h2 {
+    background-color: #eaf4fb;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Тільки прямі дочірні h3 тега body */
+body > h3 {
+    background-color: #fef9e7;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Тільки прямі дочірні параграфи тега body */
+body > p {
+    margin-left: 15px;
+    border-left: 3px solid #bdc3c7;
+    padding-left: 10px;
+}
+
+
+/* СУСІДНІ СЕЛЕКТОРИ (+) */
+/* Параграф, що йде одразу після h2 */
+h2 + p {
+    font-style: italic;
+    color: #555;
+    background-color: #fafafa;
+    padding: 8px;
+    border-left: 3px solid #2980b9;
+}
+
+/* Параграф, що йде одразу після h3 */
+h3 + p {
+    color: #636e72;
+    border-left: 2px dotted #74b9ff;
+    padding-left: 8px;
+}
+
+/* dd, що йде одразу після dt */
+dt + dd {
+    color: #636e72;
+    font-style: italic;
+    padding-left: 15px;
 }
