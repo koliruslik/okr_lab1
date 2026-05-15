@@ -1,11 +1,19 @@
+/* ============================================================
+   ЛАБОРАТОРНА РОБОТА №5
+   Тема: CSS. Блочні/рядкові елементи. Позиціонування.
+         Псевдокласи. Псевдоелементи.
+   ============================================================ */
+
+/* ── Базові стилі (з ЛР4) ─────────────────────────────────── */
 body {
     background-color: #f0f4f8;
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-/* Селектор за ідентифікатором */
 #main-title {
     font-size: 32px;
     color: #2c3e50;
@@ -13,33 +21,11 @@ body {
     text-transform: uppercase;
 }
 
-/* Селектор класу для підзаголовків */
 .section-header {
     font-size: 24px;
     color: #2980b9;
     border-bottom: 2px solid #2980b9;
     margin-top: 20px;
-}
-
-/* Стиль для посилань */
-a {
-    color: #e67e22 !important;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Марковані та нумеровані списки */
-ul, ol {
-    list-style-position: inside;
-    margin: 20px 0;
-    padding: 15px 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    display: table;
-}
-
-ul {
-    list-style-type: square;
 }
 
 /* Список визначень */
@@ -48,7 +34,6 @@ dl {
     padding: 10px;
     border-left: 5px solid #74b9ff;
 }
-
 dt { font-weight: bold; color: #2d3436; }
 dd { margin-bottom: 10px; }
 
@@ -59,69 +44,43 @@ table {
     margin: 20px 0;
     background-color: white;
 }
-
 table th, table td {
     border: 1px solid #bdc3c7;
     padding: 12px;
     text-align: left;
 }
-
 table th {
     background-color: #2980b9;
     color: white;
 }
 
-
-/* КОНТЕКСТНІ СЕЛЕКТОРИ
-
-Посилання всередині навігації (будь-який рівень вкладеності) */
-nav a {
-    color: #8e44ad !important;
-    font-size: 16px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+/* Списки */
+ul, ol {
+    list-style-position: inside;
+    margin: 20px 0;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: table;
 }
-
-/* Елементи списку всередині ul (будь-який рівень вкладеності) */
+ul { list-style-type: square; }
 ul li {
     padding: 5px 0;
     color: #2c3e50;
     font-style: italic;
 }
 
-/* Посилання всередині параграфа */
-p a {
-    border-bottom: 1px dashed #e67e22;
-    padding-bottom: 1px;
-}
-
-
-/* ДОЧІРНІ СЕЛЕКТОРИ (>)*/
-
-/* Тільки прямі дочірні h2 тега body */
+/* Контекстні та дочірні селектори */
 body > h2 {
     background-color: #eaf4fb;
     padding: 5px 10px;
     border-radius: 4px;
 }
-
-/* Тільки прямі дочірні h3 тега body */
 body > h3 {
     background-color: #fef9e7;
     padding: 4px 8px;
     border-radius: 4px;
 }
-
-/* Тільки прямі дочірні параграфи тега body */
-body > p {
-    margin-left: 15px;
-    border-left: 3px solid #bdc3c7;
-    padding-left: 10px;
-}
-
-
-/* СУСІДНІ СЕЛЕКТОРИ (+) */
-/* Параграф, що йде одразу після h2 */
 h2 + p {
     font-style: italic;
     color: #555;
@@ -129,17 +88,321 @@ h2 + p {
     padding: 8px;
     border-left: 3px solid #2980b9;
 }
-
-/* Параграф, що йде одразу після h3 */
 h3 + p {
     color: #636e72;
     border-left: 2px dotted #74b9ff;
     padding-left: 8px;
 }
-
-/* dd, що йде одразу після dt */
 dt + dd {
     color: #636e72;
     font-style: italic;
     padding-left: 15px;
+}
+
+/* НАВІГАЦІЯ  */
+nav {
+    text-align: center;
+    background-color: #2c3e50;
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+nav a {
+    color: #ecf0f1;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ПСЕВДОКЛАСИ ДЛЯ ПОСИЛАНЬ
+   :link    — не відвідане посилання
+   :visited — відвідане посилання
+   :hover   — наведення миші
+   :active  — момент кліку
+ */
+a:link    { color: #e67e22; text-decoration: none; }
+a:visited { color: #8e44ad; }
+a:hover   { color: #c0392b; text-decoration: underline; }
+a:active  { color: #27ae60; }
+
+/* Посилання у навігації — перекривають загальні */
+nav a:link    { color: #ecf0f1; }
+nav a:visited { color: #bdc3c7; }
+nav a:hover   {
+    color: #f39c12;
+    text-decoration: none;
+    border-bottom: 2px solid #f39c12;
+    padding-bottom: 2px;
+}
+nav a:active  { color: #e74c3c; }
+
+/* Посилання у параграфі */
+p a {
+    border-bottom: 1px dashed #e67e22;
+    padding-bottom: 1px;
+}
+
+/*
+   ПСЕВДОКЛАС :first-child
+ */
+
+/* Перший <li> у будь-якому списку отримує особливий стиль */
+li:first-child {
+    font-weight: bold;
+    color: #2980b9 !important;
+    font-style: normal !important;
+    list-style-type: "★ ";
+}
+
+/* Перший рядок <tr> у tbody */
+tbody tr:first-child {
+    background-color: #eaf4fb;
+}
+
+/*
+   ПСЕВДОЕЛЕМЕНТИ ::before та ::after
+*/
+
+/* ::before — іконка перед кожним заголовком секції */
+.section-header::before {
+    content: "⚔ ";
+    color: #e74c3c;
+    font-size: 0.9em;
+}
+
+/* ::after — декоративна риска після заголовку */
+.section-header::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #e74c3c, transparent);
+    margin-top: 4px;
+}
+
+/* ::before для пунктів навігації (роздільник між посиланнями) */
+nav a + a::before {
+    content: "| ";
+    color: #7f8c8d;
+    margin-right: 4px;
+}
+
+/* ::after — підказка "↗" для зовнішніх посилань, селектор атрибута */
+a[target="_blank"]::after {
+    content: " ↗";
+    font-size: 0.75em;
+    color: #95a5a6;
+}
+
+/* ::before — лапки навколо цитати-спану */
+.quote::before { content: "«"; color: #2980b9; font-size: 1.2em; }
+.quote::after  { content: "»"; color: #2980b9; font-size: 1.2em; }
+
+/*
+   БЛОЧНІ ЕЛЕМЕНТИ <div> та ПОЗИЦІОНУВАННЯ
+*/
+
+/* Загальна обгортка сторінки */
+.page-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+/* position: relative */
+.hero-banner {
+    position: relative;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    padding: 60px 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+/* Фонові декоративні кубики через ::before / ::after */
+.hero-banner::before {
+    content: "⬡";
+    position: absolute;
+    font-size: 140px;
+    color: rgba(255,255,255,0.05);
+    top: -20px;
+    right: 20px;
+    line-height: 1;
+    pointer-events: none;
+}
+.hero-banner::after {
+    content: "⬡";
+    position: absolute;
+    font-size: 80px;
+    color: rgba(255,255,255,0.07);
+    bottom: 10px;
+    left: 30px;
+    pointer-events: none;
+}
+
+.hero-banner h1 {
+    font-size: 2.4em;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.hero-banner p {
+    font-size: 1.1em;
+    color: #a0b4c8;
+    margin: 0;
+    border-left: none;
+    background: none;
+    padding: 0;
+    font-style: normal;
+}
+
+/* ── position: absolute — бейдж «BETA» у куті банера */
+.badge {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ── FLOAT — двоколонкова компоновка  */
+.content-area::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.sidebar {
+    float: right;
+    width: 240px;
+    background: #fff;
+    border: 1px solid #dce1e7;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 0 0 20px 24px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.07);
+}
+.sidebar h3 {
+    margin-top: 0;
+    color: #2980b9;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.sidebar ul {
+    margin: 0;
+    padding: 8px;
+    display: block;
+    background: transparent;
+}
+.sidebar ul li {
+    font-style: normal !important;
+    color: #555 !important;
+    font-weight: normal !important;
+    font-size: 0.9em;
+    list-style-type: disc;
+    list-style-position: outside;
+    padding: 3px 0;
+}
+/* Перший елемент сайдбару — без переотримання */
+.sidebar ul li:first-child {
+    font-weight: bold !important;
+    list-style-type: "★ " !important;
+}
+
+/* РЯДКОВІ ЕЛЕМЕНТИ <span>  */
+.highlight {
+    background-color: #ffeaa7;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #2d3436;
+}
+.tag {
+    display: inline-block;
+    background-color: #0f3460;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.78em;
+    margin: 2px 2px;
+    letter-spacing: 0.5px;
+}
+.stat-value {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* position: fixed — кнопка «↑ Вгору» */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #2980b9;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 44px;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    z-index: 999;
+    transition: background 0.2s;
+}
+.scroll-top-btn:hover {
+    background-color: #1a6fa8;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Картка характеристики (position: relative + absolute) */
+.stat-card {
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #dce1e7;
+    border-radius: 10px;
+    padding: 20px 24px 14px;
+    margin: 8px;
+    min-width: 140px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    vertical-align: top;
+}
+.stat-card .stat-label {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2980b9;
+    color: #fff;
+    font-size: 0.7em;
+    padding: 2px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+}
+.stat-card .stat-num {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #2c3e50;
+    line-height: 1.1;
+}
+.stat-card .stat-desc {
+    font-size: 0.78em;
+    color: #7f8c8d;
 }

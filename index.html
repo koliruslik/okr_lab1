@@ -5,82 +5,174 @@
     <meta name="author" content="Ruslan">
     <title>Roll For Honor - Головна</title>
     <link rel="stylesheet" href="CSS/style.css">
-
-    <style>
-        a {
-            color: #8e44ad; /* Пріоритет над зовнішнім CSS */
-        }
-    </style>
 </head>
 <body>
 
-<h1 id="main-title">Проєкт: Roll For Honor</h1>
-
-<nav style="text-align: center;">
-    <b>
-        <a href="index.html">Головна</a>
-        <a href="mechanics.html">Механіки</a>
-        <a href="media.html">Медіа</a>
-        <a href="contact.html">Контакти</a>
-    </b>
+<!-- ── НАВІГАЦІЯ (position: sticky) ─────────────────────── -->
+<nav id="top">
+    <a href="index.html">Головна</a>
+    <a href="mechanics.html">Механіки</a>
+    <a href="media.html">Медіа</a>
+    <a href="contact.html">Контакти</a>
 </nav>
 
-<hr>
+<!-- ── ОБГОРТКА СТОРІНКИ (div-блок) ──────────────────────── -->
+<div class="page-wrapper">
+    <div id="top-anchor"></div>
+    <!-- ── HERO-БАНЕР (position: relative + absolute-діти) ── -->
+    <div class="hero-banner">
+        <span class="badge">BETA</span> <!-- position: absolute всередині relative -->
+        <h1 id="main-title">Roll For Honor</h1>
+        <p>
+            Університетський проєкт — <span class="highlight">2D action-гра</span>
+            на рушії <span class="highlight">Godot</span>.
+            Кожна дія може залежати від кидка
+            <span class="highlight">віртуальних кубиків</span>.
+        </p>
+    </div>
 
-<p id="start" >
-    Ласкаво просимо до документації мого університетського проєкту.
-    Roll For Honor - це 2D action-гра, розроблена на рушії Godot.
-</p>
+    <!-- ── ДВОКОЛОНКОВИЙ МАКЕТ (float) ─────────────────────── -->
+    <div class="content-area">
 
-<h2 class="section-header">Про гру</h2>
-<p>
-    Основна концепція гри базується на унікальному поєднанні випадковості та майстерності гравця.
-    Кожна дія може залежати від кидка віртуальних кубиків. Ознайомитися з інструментарієм можна відвідавши
-    <a href="https://godotengine.org" target="_blank">офіційний сайт Godot</a>.
-</p>
+        <!-- Sidebar (float: right) -->
+        <div class="sidebar">
+            <h3>Швидкі факти</h3>
+            <ul>
+                <li>Рушій: Godot 4</li>
+                <li>Жанр: 2D Action RPG</li>
+                <li>Мова: GDScript / C#</li>
+                <li>Графіка: Pixel Art</li>
+                <li>Статус: у розробці</li>
+            </ul>
+        </div>
 
-<h2 class="section-header">Ключові особливості</h2>
-<ul>
-    <li>Динамічна бойова система</li>
-    <li>Система станів на основі патернів</li>
-    <li>Процедурна генерація випадкових подій</li>
-</ul>
+        <!-- Основний контент -->
+        <div>
+            <h2 class="section-header">Про гру</h2>
+            <p>
+                Основна концепція гри базується на унікальному поєднанні
+                <span class="highlight">випадковості</span> та
+                <span class="highlight">майстерності гравця</span>.
+                Ознайомитися з інструментарієм можна відвідавши
+                <a href="https://godotengine.org" target="_blank">офіційний сайт Godot</a>.
+            </p>
+            <p>
+                Проєкт розробляється в рамках університетського курсу з веб-розробки.
+                Тут ви знайдете повну документацію, опис механік та медіа-матеріали.
+            </p>
 
-<dl>
-    <dt>Godot Engine</dt>
-    <dd>Кросплатформний ігровий рушій, на якому створюється Roll For Honor.</dd>
-    <dt>Pixel Art</dt>
-    <dd>Графічний стиль, обраний для візуалізації світу гри.</dd>
-</dl>
+            <h2 class="section-header">Ключові особливості</h2>
+            <ul>
+                <li>Динамічна бойова система</li>
+                <li>Система станів на основі патернів</li>
+                <li>Процедурна генерація випадкових подій</li>
+                <li>Pixel Art графіка</li>
+            </ul>
+        </div>
+    </div><!-- /content-area -->
 
-<h2 class="section-header">Технічні характеристики</h2>
-<table>
-    <thead>
-    <tr>
-        <th>Параметр</th>
-        <th>Технологія</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Мова програмування</td>
-        <td>GDScript / C#</td>
-    </tr>
-    <tr>
-        <td>Графіка</td>
-        <td>Aseprite (Pixel Art)</td>
-    </tr>
-    <tr>
-        <td>База даних (план)</td>
-        <td>PostgreSQL</td>
-    </tr>
-    </tbody>
-</table>
+    <!-- ── РЯДКОВІ ЕЛЕМЕНТИ <span> — теги технологій ─────── -->
+    <h2 class="section-header">Технологічний стек</h2>
+    <p>
+        Проєкт використовує такі інструменти та технології:
+    </p>
+    <div style="margin: 10px 0 20px;">
+        <span class="tag">Godot 4</span>
+        <span class="tag">GDScript</span>
+        <span class="tag">C#</span>
+        <span class="tag">Aseprite</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Pixel Art</span>
+    </div>
 
-<br>
-<a href="mechanics.html#tables">Перейти до механік</a>
-<br><br>
-<a href="#start">Повернутися до початку</a>
+    <!-- ── КАРТКИ СТАТИСТИКИ (position: relative + absolute) ─ -->
+    <h2 class="section-header">Статистика проєкту</h2>
+    <div>
+        <div class="stat-card">
+            <span class="stat-label">Версія</span>
+            <div class="stat-num">0.3</div>
+            <div class="stat-desc">поточна збірка</div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Механіки</span>
+            <div class="stat-num"><span class="stat-value">8</span></div>
+            <div class="stat-desc">реалізовано</div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Рівні</span>
+            <div class="stat-num"><span class="stat-value">3</span></div>
+            <div class="stat-desc">у прототипі</div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Класи</span>
+            <div class="stat-num"><span class="stat-value">4</span></div>
+            <div class="stat-desc">ігрових класи</div>
+        </div>
+    </div>
+
+    <h2 class="section-header">Система розрахунку шкоди</h2>
+    <p>
+        Кожен удар у грі проходить через три етапи перевірки, які визначають фінальну ефективність вашої атаки:
+    </p>
+    <div>
+        <span class="tag">Базова атака — розраховується згідно з атрибутами героя</span>
+        <span class="tag">Модифікатор кубика — додає випадкове значення до сили удару</span>
+        <span class="tag">Фінальна шкода — враховує опір ворога</span>
+    </div>
+
+
+    <h2 class="section-header">Девіз проєкту</h2>
+    <p>
+        <span class="quote">Кидай кубик — пиши долю</span> —
+        саме цей принцип покладено в основу геймплею
+        <span class="highlight">Roll For Honor</span>.
+    </p>
+
+    <h2 class="section-header">Технічні характеристики</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Параметр</th>
+            <th>Технологія</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Мова програмування</td>
+            <td>GDScript / C#</td>
+        </tr>
+        <tr>
+            <td>Графіка</td>
+            <td>Aseprite (Pixel Art)</td>
+        </tr>
+        <tr>
+            <td>База даних (план)</td>
+            <td>PostgreSQL</td>
+        </tr>
+        <tr>
+            <td>Репозиторій</td>
+            <td><a href="https://github.com" target="_blank">GitHub</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <dl>
+        <dt>Godot Engine</dt>
+        <dd>Кросплатформний ігровий рушій, на якому створюється Roll For Honor.</dd>
+        <dt>Pixel Art</dt>
+        <dd>Графічний стиль, обраний для візуалізації світу гри.</dd>
+    </dl>
+
+    <br>
+    <a href="mechanics.html#tables">Перейти до механік</a>
+    &nbsp;|&nbsp;
+    <a href="#top-anchor">Повернутися до початку</a>
+
+</div>
+
+<!-- ── position: fixed — кнопка прокрутки вгору ─────────── -->
+<a href="#top-anchor" class="scroll-top-btn" title="Вгору">↑</a>
 
 </body>
 </html>

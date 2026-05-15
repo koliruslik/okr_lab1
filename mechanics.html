@@ -7,58 +7,110 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+<div id="top-anchor"></div>
+<!-- Навігація (position: sticky) -->
+<nav id="top">
+    <a href="index.html">Головна</a>
+    <a href="mechanics.html">Механіки</a>
+    <a href="media.html">Медіа</a>
+    <a href="contact.html">Контакти</a>
+</nav>
 
-<h2 class="section-header">Основні механіки гри</h2>
+<div class="page-wrapper">
 
-<p>У грі реалізовано декілька ключових систем.</p>
+    <h2 class="section-header">Основні механіки гри</h2>
+    <p>У грі реалізовано декілька ключових систем.</p>
 
-<h3 class="section-header">Списки можливостей</h3>
-<p>Основний функціонал, та можливості гри</p>
-<ul>
-    <li>Система комбо-атак</li>
-    <li>Процедурна генерація кімнат</li>
-    <li>AI ворогів на основі дерев поведінки</li>
-</ul>
+    <!-- Двоколонковий макет для механік -->
+    <div class="content-area">
 
-<h3 class="section-header">План розробки</h3>
-<ol>
-    <li>Розробка концепту</li>
-    <li>Створення прототипу в Godot</li>
-    <li>Тестування механік</li>
-</ol>
+        <!-- Sidebar (float: right) -->
+        <div class="sidebar">
+            <h3>Навігація</h3>
+            <ul>
+                <li><a href="#lists">Можливості</a></li>
+                <li><a href="#plan">План</a></li>
+                <li><a href="#terms">Терміни</a></li>
+                <li><a href="#tables">Класи</a></li>
+            </ul>
+        </div>
 
-<h3 class="section-header">Термінологія</h3>
-<dl>
-    <dt>Hitbox</dt>
-    <dd>Область на екрані, яка визначає зону ураження персонажа.</dd>
-    <dt>C# Scripting</dt>
-    <dd>Основна мова програмування, що використовується для логіки гри.</dd>
-</dl>
+        <div>
+            <h3 class="section-header" id="lists">Списки можливостей</h3>
+            <p>Основний функціонал та можливості гри</p>
+            <ul>
+                <li>Система <span class="highlight">комбо-атак</span></li>
+                <li>Процедурна генерація кімнат</li>
+                <li>AI ворогів на основі дерев поведінки</li>
+                <li>Система кидків кубика</li>
+            </ul>
 
-<h3 class="section-header" id="tables">Порівняння класів</h3>
-<table>
-    <thead>
-    <tr>
-        <th colspan="3">Характеристики класів</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td rowspan="2"><b>Воїн</b></td>
-        <td>HP: 100</td>
-        <td>STR: 18</td>
-    </tr>
-    <tr>
-        <td>Armor: Heavy</td>
-        <td>Speed: Low</td>
-    </tr>
-    </tbody>
-</table>
+            <h3 class="section-header" id="plan">План розробки</h3>
+            <p>Поетапний план створення гри</p>
+            <ol>
+                <li>Розробка концепту</li>
+                <li>Створення прототипу в Godot</li>
+                <li>Тестування механік</li>
+                <li>Додавання контенту</li>
+            </ol>
+        </div>
+    </div>
 
-<h3 class="section-header">Вбудований фрейм</h3>
-<iframe src="contact.html" width="100%" height="200" style="border: 1px solid #bdc3c7; border-radius: 8px;"></iframe>
+    <h3 class="section-header" id="terms">Термінологія</h3>
+    <dl>
+        <dt>Hitbox</dt>
+        <dd>Область на екрані, яка визначає зону ураження персонажа.</dd>
+        <dt>C# Scripting</dt>
+        <dd>Основна мова програмування, що використовується для логіки гри.</dd>
+    </dl>
 
-<p><a href="index.html">На головну</a></p>
+    <h3 class="section-header" id="tables">Порівняння класів</h3>
+    <!-- Теги технологій через <span class="tag"> -->
+    <div style="margin-bottom: 12px;">
+        <span class="tag">Воїн</span>
+        <span class="tag">Маг</span>
+        <span class="tag">Лучник</span>
+        <span class="tag">Злодій</span>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th colspan="3">Характеристики класів</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td rowspan="2"><b>Воїн</b></td>
+            <td>HP: <span class="stat-value">100</span></td>
+            <td>STR: <span class="stat-value">18</span></td>
+        </tr>
+        <tr>
+            <td>Armor: Heavy</td>
+            <td>Speed: Low</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Маг</b></td>
+            <td>HP: <span class="stat-value">60</span></td>
+            <td>INT: <span class="stat-value">22</span></td>
+        </tr>
+        <tr>
+            <td>Armor: Robe</td>
+            <td>Speed: Medium</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-header">Вбудований фрейм</h3>
+    <iframe src="contact.html" width="100%" height="200"
+            style="border: 1px solid #bdc3c7; border-radius: 8px;"></iframe>
+
+    <br><br>
+    <a href="index.html">← На головну</a>
+</div>
+
+<!-- position: fixed -->
+<a href="#top-anchor" class="scroll-top-btn" title="Вгору">↑</a>
 
 </body>
 </html>
