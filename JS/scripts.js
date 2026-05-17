@@ -118,27 +118,21 @@ function triggerBossState() {
 
 
 function fleeToTavern() {
-    if (confirm("Здоров'я критичне! Бажаєте втекти до сторінки Механік?")) {
-        location.href = "mechanics.html";
+    if (confirm("Здоров'я критичне! Бажаєте втекти до головної сторінки?")) {
+        location.href = "index.html";
     }
 }
 
 function levelUpMechanic() {
-    const titleEl = document.getElementById("main-title");
+    let titleEl = document.querySelector(".section-header");
+
     if (titleEl && !titleEl.textContent.includes("LEVEL UP")) {
         titleEl.textContent = titleEl.textContent + " [LEVEL UP!]";
         titleEl.style.color = "#f1c40f";
     }
 
 
-    const levelSpan = document.getElementById("level-counter");
-    if (levelSpan) {
-        let currentLevel = parseInt(levelSpan.textContent);
-        levelSpan.textContent = currentLevel + 1;
-    }
-
-
-    const tags = document.querySelectorAll("#tech-tags-container .tag");
+    const tags = document.querySelectorAll(".tag");
     tags.forEach(function (tag) {
         if (!tag.innerHTML.includes("⚡")) {
             tag.innerHTML = "⚡ " + tag.innerHTML;
@@ -146,7 +140,18 @@ function levelUpMechanic() {
         }
     });
 
+    // 4. Збільшення статів (HP, STR, INT) у таблиці
+    const statValues = document.querySelectorAll(".stat-value");
+    statValues.forEach(function(stat) {
+        let currentValue = parseInt(stat.textContent);
+        if (!isNaN(currentValue)) {
+            stat.textContent = currentValue + 5;
+            stat.style.color = "#27ae60";
+            stat.style.fontWeight = "bold";
+        }
+    });
 
+    // 5. Логіка навігації
     const navLinks = document.querySelectorAll("nav a");
     if (navLinks.length > 0) {
         const textNode = navLinks[0].firstChild;
@@ -155,7 +160,7 @@ function levelUpMechanic() {
         }
     }
 
-
+    // 6. Картка версії (працюватиме тільки там, де вона є)
     const versionCard = document.getElementById("version-card");
     if (versionCard) {
         alert("HTML картка версії (outerHTML):\n\n" + versionCard.outerHTML);

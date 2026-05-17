@@ -56,6 +56,66 @@
         </div>
     </div>
 
+    <h2 class="section-header">Інтерактивний Тест Механік</h2>
+
+    <div class="js-demo-section">
+        <h3>1. Базовий кидок d20 </h3>
+        <p style="font-size:0.85em;color:#636e72;">Симуляція початку гри та генерації випадкової події.</p>
+        <button class="btn-js orange" onclick="rollInitiativeDialog()">
+            Кинути ініціативу
+        </button>
+    </div>
+
+    <div class="js-demo-section">
+        <h3>2. Генерація персонажа</h3>
+        <button class="btn-js" onclick="spawnCharacter('Aster Rey', 'Оракул')">
+            Створити: Маг
+        </button>
+        <button class="btn-js green" onclick="spawnCharacter('Роланд')">
+            Створити: Воін
+        </button>
+    </div>
+
+    <div class="js-demo-section">
+        <h3>3. Хто атакує першим?</h3>
+        <button class="btn-js" onclick="resolveClash('Маг', 'Воін')">
+            Маг vs Воін
+        </button>
+        <button class="btn-js red" onclick="
+            var enemy = prompt('Введіть ім\'я монстра:','Гоблін');
+            var hero = prompt('Введіть ім\'я героя:','Роланд');
+            if(enemy && hero) resolveClash(hero, enemy);">
+            Власна дуель
+        </button>
+    </div>
+
+    <div class="js-demo-section">
+        <h3>4. Перейти в кімнату боса, або втекти</h3>
+        <button class="btn-js red" onclick="triggerBossState()">
+            Активувати "Boss Room"
+        </button>
+        <button class="btn-js" onclick="fleeToTavern()">
+            Втекти до документації
+        </button>
+    </div>
+
+    <div class="js-demo-section">
+        <h3>5. Прокачка героя </h3>
+        <button class="btn-js green" onclick="levelUpMechanic()">
+            Підвищити рівень
+        </button>
+    </div>
+
+    <div class="js-demo-section">
+        <h3>6. Генерація луту </h3>
+        <div id="chest-placeholder" class="dice-placeholder">
+            Зачинена Скриня
+        </div>
+        <button class="btn-js orange" onclick="openLootChest()">
+            Відкрити скриню
+        </button>
+    </div>
+
     <h3 class="section-header" id="terms">Термінологія</h3>
     <dl>
         <dt>Hitbox</dt>
