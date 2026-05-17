@@ -1,10 +1,40 @@
-/* ============================================================
-   ЛАБОРАТОРНА РОБОТА №5
-   Тема: CSS. Блочні/рядкові елементи. Позиціонування.
-         Псевдокласи. Псевдоелементи.
-   ============================================================ */
+.js-demo-section {
+    background: #fff;
+    border: 2px dashed #e67e22;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.js-demo-section h3 { margin-top: 0; color: #d35400; border-bottom: 1px solid #eee; padding-bottom: 8px;}
+.btn-js {
+    display: inline-block;
+    background: #2c3e50;
+    color: #fff;
+    border: 2px solid transparent;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin: 4px 4px 4px 0;
+    transition: all 0.2s;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+}
+.btn-js:hover  { background: #1a252f; transform: translateY(-2px); }
+.btn-js.red    { background: #c0392b; }
+.btn-js.red:hover    { background: #922b21; }
+.btn-js.green  { background: #27ae60; }
+.btn-js.green:hover  { background: #1e8449; }
+.btn-js.orange { background: #d35400; }
+.btn-js.orange:hover { background: #a04000; }
 
-/* ── Базові стилі (з ЛР4) ─────────────────────────────────── */
+.dice-placeholder {
+    background: #ecf0f1; padding: 15px; border-radius: 8px;
+    text-align: center; font-weight: bold; color: #7f8c8d;
+    border: 2px dashed #bdc3c7; margin-bottom: 10px;
+}
+
 body {
     background-color: #f0f4f8;
     font-family: 'Segoe UI', sans-serif;
