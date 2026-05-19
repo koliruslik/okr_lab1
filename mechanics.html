@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Ruslan">
-    <title>Ігрові механіки</title>
+    <title>Ігрові механіки — Roll For Honor</title>
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 <div id="top-anchor"></div>
-<!-- Навігація (position: sticky) -->
 <nav id="top">
     <a href="index.html">Головна</a>
     <a href="mechanics.html">Механіки</a>
@@ -19,12 +18,11 @@
 <div class="page-wrapper">
 
     <h2 class="section-header">Основні механіки гри</h2>
-    <p>У грі реалізовано декілька ключових систем.</p>
+    <p>У грі реалізовано декілька ключових систем — від бойових здібностей до процедурної генерації.</p>
 
-    <!-- Двоколонковий макет для механік -->
+    <!-- ── ДВОКОЛОНКОВИЙ МАКЕТ ── -->
     <div class="content-area">
 
-        <!-- Sidebar (float: right) -->
         <div class="sidebar">
             <h3>Навігація</h3>
             <ul>
@@ -32,6 +30,10 @@
                 <li><a href="#plan">План</a></li>
                 <li><a href="#terms">Терміни</a></li>
                 <li><a href="#tables">Класи</a></li>
+                <li><a href="#ability-cards">Здібності</a></li>
+                <li><a href="#active-skill">Вибір уміння</a></li>
+                <li><a href="#combat-panel">Панель бою</a></li>
+                <li><a href="#arsenal">Арсенал</a></li>
             </ul>
         </div>
 
@@ -56,34 +58,25 @@
         </div>
     </div>
 
-    <h2 class="section-header">Інтерактивний Тест Механік</h2>
-
+    <!-- ── JS ДЕМО-СЕКЦІЇ ── -->
     <div class="js-demo-section">
-        <h3>1. Базовий кидок d20 </h3>
+        <h3>1. Базовий кидок d20</h3>
         <p style="font-size:0.85em;color:#636e72;">Симуляція початку гри та генерації випадкової події.</p>
-        <button class="btn-js orange" onclick="rollInitiativeDialog()">
-            Кинути ініціативу
-        </button>
+        <button class="btn-js orange" onclick="rollInitiativeDialog()">Кинути ініціативу</button>
     </div>
 
     <div class="js-demo-section">
         <h3>2. Генерація персонажа</h3>
-        <button class="btn-js" onclick="spawnCharacter('Aster Rey', 'Оракул')">
-            Створити: Маг
-        </button>
-        <button class="btn-js green" onclick="spawnCharacter('Роланд')">
-            Створити: Воін
-        </button>
+        <button class="btn-js" onclick="spawnCharacter('Aster Rey', 'Оракул')">Створити: Маг</button>
+        <button class="btn-js green" onclick="spawnCharacter('Роланд')">Створити: Воін</button>
     </div>
 
     <div class="js-demo-section">
         <h3>3. Хто атакує першим?</h3>
-        <button class="btn-js" onclick="resolveClash('Маг', 'Воін')">
-            Маг vs Воін
-        </button>
+        <button class="btn-js" onclick="resolveClash('Маг', 'Воін')">Маг vs Воін</button>
         <button class="btn-js red" onclick="
             var enemy = prompt('Введіть ім\'я монстра:','Гоблін');
-            var hero = prompt('Введіть ім\'я героя:','Роланд');
+            var hero  = prompt('Введіть ім\'я героя:','Роланд');
             if(enemy && hero) resolveClash(hero, enemy);">
             Власна дуель
         </button>
@@ -91,31 +84,22 @@
 
     <div class="js-demo-section">
         <h3>4. Перейти в кімнату боса, або втекти</h3>
-        <button class="btn-js red" onclick="triggerBossState()">
-            Активувати "Boss Room"
-        </button>
-        <button class="btn-js" onclick="fleeToTavern()">
-            Втекти до документації
-        </button>
+        <button class="btn-js red" onclick="triggerBossState()">Активувати "Boss Room"</button>
+        <button class="btn-js" onclick="fleeToTavern()">Втекти до головної</button>
     </div>
 
     <div class="js-demo-section">
-        <h3>5. Прокачка героя </h3>
-        <button class="btn-js green" onclick="levelUpMechanic()">
-            Підвищити рівень
-        </button>
+        <h3>5. Прокачка героя</h3>
+        <button class="btn-js green" onclick="levelUpMechanic()">Підвищити рівень</button>
     </div>
 
     <div class="js-demo-section">
-        <h3>6. Генерація луту </h3>
-        <div id="chest-placeholder" class="dice-placeholder">
-            Зачинена Скриня
-        </div>
-        <button class="btn-js orange" onclick="openLootChest()">
-            Відкрити скриню
-        </button>
+        <h3>6. Генерація луту</h3>
+        <div id="chest-placeholder" class="dice-placeholder">Зачинена Скриня</div>
+        <button class="btn-js orange" onclick="openLootChest()">Відкрити скриню</button>
     </div>
 
+    <!-- ── ТЕРМІНОЛОГІЯ ── -->
     <h3 class="section-header" id="terms">Термінологія</h3>
     <dl>
         <dt>Hitbox</dt>
@@ -124,20 +108,17 @@
         <dd>Основна мова програмування, що використовується для логіки гри.</dd>
     </dl>
 
+    <!-- ── ТАБЛИЦЯ КЛАСІВ ── -->
     <h3 class="section-header" id="tables">Порівняння класів</h3>
-    <!-- Теги технологій через <span class="tag"> -->
     <div style="margin-bottom: 12px;">
         <span class="tag">Воїн</span>
         <span class="tag">Маг</span>
         <span class="tag">Лучник</span>
         <span class="tag">Злодій</span>
     </div>
-
     <table>
         <thead>
-        <tr>
-            <th colspan="3">Характеристики класів</th>
-        </tr>
+        <tr><th colspan="3">Характеристики класів</th></tr>
         </thead>
         <tbody>
         <tr>
@@ -161,6 +142,159 @@
         </tbody>
     </table>
 
+
+    <!-- ══════════════════════════════════════════════════════
+         ЗДІБНОСТІ ПЕРСОНАЖА
+         Наведення через атрибут (Атака), через властивість (Магія),
+         два обробники addEventListener на клік (Захист),
+         об'єкт handleEvent + removeEventListener (Доля).
+    ═══════════════════════════════════════════════════════ -->
+    <h2 class="section-header" id="ability-cards">Здібності Персонажа</h2>
+    <p>
+        Наведи курсор на картку, щоб розкрити деталі здібності.
+        Натисни на <span class="highlight">Долю</span>, щоб перевірити фортуну.
+    </p>
+
+    <div class="ability-cards">
+
+        <!-- Атака — onmouseover через HTML-атрибут -->
+        <div class="ability-card" id="card-atk"
+             onmouseover="abilityHoverAttr(event)"
+             onmouseout="abilityOutAttr(event)">
+            <div class="ac-icon">⚔️</div>
+            <div class="ac-name">Атака</div>
+            <div class="ac-stat">1d8 + STR</div>
+            <div class="ac-flavor">Прямий удар зброєю в ближньому бою</div>
+        </div>
+
+        <!-- Магія — onmouseover через властивість (.onmouseover = fn) -->
+        <div class="ability-card" id="card-mag">
+            <div class="ac-icon">🔮</div>
+            <div class="ac-name">Магія</div>
+            <div class="ac-stat">1d10 + INT</div>
+            <div class="ac-flavor">Дальня атака магічною енергією</div>
+        </div>
+
+        <!-- Захист — click з двома addEventListener-обробниками -->
+        <div class="ability-card" id="card-def">
+            <div class="ac-icon">🛡️</div>
+            <div class="ac-name">Захист</div>
+            <div class="ac-stat">AC + 5</div>
+            <div class="ac-flavor">Підняти щит і прийняти удар</div>
+        </div>
+
+        <!-- Доля — об'єкт з handleEvent, видаляється через removeEventListener -->
+        <div class="ability-card ability-card--legendary" id="card-fate">
+            <div class="ac-icon">🎲</div>
+            <div class="ac-name">Доля</div>
+            <div class="ac-stat">d20 — Перст долі</div>
+            <div class="ac-flavor">Невідомий результат. Клікни, щоб дізнатись</div>
+        </div>
+
+    </div>
+
+    <button id="btn-break-fate" class="btn-js red" style="margin-top:10px; font-size:0.85em;">
+        ⛓️ Зламати кубик Долі
+    </button>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         ВИБІР АКТИВНОЇ ЗДІБНОСТІ
+         onclick на <ul>, визначення <li> через event.target.
+    ═══════════════════════════════════════════════════════ -->
+    <h2 class="section-header" id="active-skill">Вибір Активної Здібності</h2>
+    <p>
+        Обери вміння для наступного ходу — воно з'явиться у
+        <span class="highlight">Бойовому журналі</span>.
+    </p>
+
+    <ul id="skill-list">
+        <li>⚔️ Подвійний удар <span class="tag">2 AP</span></li>
+        <li>🔥 Вогняна куля <span class="tag">3 AP</span></li>
+        <li>💨 Ухилення <span class="tag">1 AP</span></li>
+        <li>🌟 Критичний удар <span class="tag">4 AP</span></li>
+        <li>🗡️ Базова атака <span class="tag">0 AP</span></li>
+    </ul>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         ПАНЕЛЬ БОЙОВИХ ДІЙ
+         Один обробник на контейнер, data-action на кожній кнопці.
+    ═══════════════════════════════════════════════════════ -->
+    <h2 class="section-header" id="combat-panel">Панель Бойових Дій</h2>
+    <p>
+        Керуй ходом битви. Кожна кнопка несе атрибут
+        <code class="inline-code">data-action</code> — один обробник визначає,
+        що робити.
+    </p>
+
+    <div id="combat-menu">
+        <button class="btn-js"        data-action="rollInitiative">🎲 Ініціатива d20</button>
+        <button class="btn-js green"  data-action="healHero"      >💚 Зцілення</button>
+        <button class="btn-js orange" data-action="castSpell"     >✨ Закляття</button>
+        <button class="btn-js red"    data-action="summonBoss"    >☠️ Викликати Боса</button>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         АРСЕНАЛ АРТЕФАКТІВ
+         Прийом «Поведінка»: data-behavior автоматично
+         додає логіку (tooltip, confirm-action, charge-counter).
+    ═══════════════════════════════════════════════════════ -->
+    <h2 class="section-header" id="arsenal">Арсенал Артефактів</h2>
+    <p>
+        Предмети у твоєму спорядженні. Наведи курсор, щоб побачити характеристики.
+        Деякі дії потребують підтвердження.
+    </p>
+
+    <div class="artifact-shelf">
+
+        <span class="artifact-item"
+              data-behavior="tooltip"
+              data-tip="Шкода: 1d8+2 | Бонус STR +2 | Рідкісний">
+            🗡️ Сталевий меч
+        </span>
+
+        <span class="artifact-item"
+              data-behavior="tooltip"
+              data-tip="AC +5 | Швидкість -1 | Епічний">
+            🛡️ Броня дракона
+        </span>
+
+        <span class="artifact-item"
+              data-behavior="tooltip"
+              data-tip="INT +4 | Відновлює 2d6 HP щохід | Легендарний">
+            📿 Амулет мудреця
+        </span>
+
+        <button class="btn-js red"
+                data-behavior="confirm-action"
+                data-message="Використати Сувій Знищення? Ворог зникне, але ти втратиш 50 HP. Продовжити?">
+            📜 Сувій Знищення
+        </button>
+
+        <label class="artifact-item artifact-counter">
+            ⚡ Заряди посоху:
+            <input id="staff-charges"
+                   data-behavior="charge-counter"
+                   data-max="7"
+                   type="number" value="0" min="0">
+            <span class="charge-max">/ 7</span>
+        </label>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         БОЙОВИЙ ЖУРНАЛ
+    ═══════════════════════════════════════════════════════ -->
+    <h2 class="section-header" id="battle-log-section">Бойовий Журнал</h2>
+    <div id="battle-log" class="battle-log">
+        <div class="bl-empty">Журнал порожній — зроби перший крок у бій.</div>
+    </div>
+
+
+    <!-- ── IFRAME ── -->
     <h3 class="section-header">Вбудований фрейм</h3>
     <iframe src="contact.html" width="100%" height="200"
             style="border: 1px solid #bdc3c7; border-radius: 8px;"></iframe>
@@ -175,7 +309,6 @@
     </button>
 </div>
 
-<!-- position: fixed -->
 <a href="#top-anchor" class="scroll-top-btn" title="Вгору">↑</a>
 
 <script src="JS/scripts.js"></script>
